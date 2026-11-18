@@ -7,7 +7,7 @@ comes from. Inputs are pandas DataFrames, following the PDF style
 import numpy as np
 import pandas as pd
 
-# PDF: mt5.TIMEFRAME_D1 / W1 / MN1  →  pandas resample rules
+# Refernce: mt5.TIMEFRAME_D1 / W1 / MN1  →  pandas resample rules
 TIMEFRAMES = {"D1": "D", "W1": "W-MON", "MN1": "MS"}
 
 
