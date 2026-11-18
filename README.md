@@ -67,7 +67,7 @@ python manage_users.py add admin --name "Admin" # prompts for a password (min 8 
 |---|---|---|
 | `live` | Real Playwright runs against `QA_BASE_URL` (now qa-practice.com), one row per run | `db/recorder.py` at the end of every `pytest tests/e2e` session |
 | `demo` | 90 days of synthetic history with planted problems, so every chart has data | `seed.py` (or *File → Regenerate demo data…*) |
-| `live_archive_<timestamp>` | Earlier live history kept aside after the site under test changed (e.g. the old wso2.com runs) | `seed.py --archive-live` |
+| `live_archive_<timestamp>` | Earlier live history kept aside after the site under test changed | `seed.py --archive-live` |
 | `public` | `app_users`: dashboard logins (PBKDF2 password hash, salt, failed attempts, lock time) | `manage_users.py` |
 
 **How data flows:**
@@ -114,7 +114,7 @@ The table definitions live in `db/schema.sql`. It uses only `CREATE … IF NOT E
 | Reset demo data | `python seed.py --seed 7` |
 | Start a fresh live history (after changing the site under test) | `python seed.py --archive-live` |
 
-`--archive-live` renames the `live` schema to `live_archive_<timestamp>` and creates an empty one. Nothing is deleted; the old runs stay queryable in the archive schema. The wso2.com runs recorded before the switch to qa-practice.com were archived this way.
+`--archive-live` renames the `live` schema to `live_archive_<timestamp>` and creates an empty one. Nothing is deleted; the old runs stay queryable in the archive schema.
 
 ### Login
 
